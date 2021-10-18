@@ -12,7 +12,8 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        tools:context=".MapsFragment" />
+        tools:context=".MapsFragment"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/text_home"

@@ -9,5 +9,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button">Button</string>
+    <string name="google">GOOGLE</string>
+    <string name="prefs_file">PREFS_FILE</string>
 
 </resources>

@@ -32,7 +32,6 @@ public class Auth_Activity extends AppCompatActivity {
               switch (v.getId()) {
                   case R.id.sign_in_button:
                       signIn();
-
                       break;
               }
               }
@@ -69,10 +68,9 @@ public class Auth_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data); //ESTA LINEA DA PROBLEMAS
+            handleSignInResult(task);                                                         //IDEM PARA ESTA
             setContentView(R.layout.activity_main);
-
         }
     }
 

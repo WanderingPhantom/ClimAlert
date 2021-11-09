@@ -2,7 +2,6 @@ package com.example.climalert;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -32,7 +31,6 @@ public class Auth_Activity extends AppCompatActivity {
               switch (v.getId()) {
                   case R.id.sign_in_button:
                       signIn();
-
                       break;
               }
               }
@@ -69,23 +67,23 @@ public class Auth_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data); //ESTA LINEA DA PROBLEMAS
+            try {
+                handleSignInResult(task);                                                         //IDEM PARA ESTA
+            } catch (ApiException e) {
+                e.printStackTrace();
+            }
             setContentView(R.layout.activity_main);
-
         }
     }
 
-    private void handleSignInResult (Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Intent intent = new Intent(Auth_Activity.this, MainActivity.class);
-            startActivity(intent);
+    private void handleSignInResult (Task<GoogleSignInAccount> completedTask) throws ApiException {
+        GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+        //Intent intent = new Intent(Auth_Activity.this,MainActivity.class);
+        //startActivity(intent);
+        //setContentView(R.layout.activity_main);
+        //Log.w("task", completedTask.toString());
 
-        } catch (ApiException e) {
-           Log.w("error","signInResult failed, code:=" + e.getStatusCode());
-
-        }
     }
 
 }

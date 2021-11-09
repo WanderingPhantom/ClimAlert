@@ -1,13 +1,8 @@
 package com.example.climalert;
 
-import static android.app.PendingIntent.getActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -16,8 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.climalert.databinding.ActivityMainBinding;
-
-import java.security.Provider;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Región para guardar los datos; así el usuario accede automáticamente, sin tener que
         //pasar por [de nuevo] al inicio de sesión de Google
-        SharedPreferences prefe = getSharedPreferences("datos",Context.MODE_PRIVATE);
+        SharedPreferences prefe = getSharedPreferences(getString(R.string.prefs_file),Context.MODE_PRIVATE);
         String email =  prefe.getString("email",null);
         String provider = prefe.getString("provider", null);
 

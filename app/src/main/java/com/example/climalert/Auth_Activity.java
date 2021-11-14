@@ -84,7 +84,7 @@ public class Auth_Activity extends AppCompatActivity {
             } catch (ApiException e) {
                 e.printStackTrace();
             }
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_main); //falla esto habria de ir a MainActivity.java
         }
     }
 

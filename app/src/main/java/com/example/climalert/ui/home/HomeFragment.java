@@ -12,15 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.climalert.MapsFragment;
-import com.example.climalert.R;
+import com.example.climalert.MapsActivity;
 import com.example.climalert.databinding.FragmentHomeBinding;
-import com.google.android.gms.maps.SupportMapFragment;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private MapsFragment mapsFragment;
+    private MapsActivity mapsActivity;
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

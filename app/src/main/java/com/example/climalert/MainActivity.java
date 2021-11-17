@@ -14,8 +14,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.climalert.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
 
 

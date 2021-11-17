@@ -20,11 +20,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Fragment fragment = new MapsFragment();
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_main, fragment)
+                .replace(R.id.mapita, fragment)
                 .commit();
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

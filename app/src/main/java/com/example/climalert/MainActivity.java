@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fragment fragment = new MapsFragment();
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.mapita, fragment)

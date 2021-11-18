@@ -13,9 +13,9 @@
         android:layout_height="match_parent"
         tools:context=".MapsFragment"
         tools:ignore="MissingConstraints"
-        tools:layout="@layout/fragment_home"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="20dp" />
+
 
 
 </RelativeLayout>

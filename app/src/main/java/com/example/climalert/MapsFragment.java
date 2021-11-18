@@ -114,7 +114,9 @@ public class MapsFragment extends Fragment {
                                 Alert(3, null);
                             }
                         }
+
                     });
+
             }
         });
 
@@ -177,6 +179,7 @@ public class MapsFragment extends Fragment {
     */
 
     public void dar_localizacion(){
+
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         String url = "https://climalert.herokuapp.com/usuario/email/localizaciones/new";
         JSONObject mapa = new JSONObject();

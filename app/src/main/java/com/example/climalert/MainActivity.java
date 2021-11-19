@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Auth_Activity login = new Auth_Activity();
-        //login.onCreate(savedInstanceState);
+        //login.onCreate(new Bundle());
         fragment = new MapsFragment();
         getSupportFragmentManager()
                 .beginTransaction()

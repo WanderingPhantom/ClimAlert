@@ -12,11 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+<<<<<<< HEAD
+import com.example.climalert.MapsActivity;
+=======
+>>>>>>> IPE-76-Issue-GoogleSignIn
 import com.example.climalert.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+<<<<<<< HEAD
+    private MapsActivity mapsActivity;
+=======
+>>>>>>> IPE-76-Issue-GoogleSignIn
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

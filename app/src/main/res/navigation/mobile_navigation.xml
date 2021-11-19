@@ -11,8 +11,6 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-
-
     <fragment
         android:id="@+id/navigation_call"
         android:name="com.example.climalert.ui.call.CallFragment"
@@ -30,6 +28,7 @@
         android:name="com.example.climalert.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
+
 
 
 

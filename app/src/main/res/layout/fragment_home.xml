@@ -41,6 +41,7 @@
         android:alpha="120"
         android:text="Loc2" />
 
+<<<<<<< HEAD
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -63,5 +64,29 @@
         android:layout_marginEnd="0dp"
         android:textAlignment="center"
         android:textSize="20sp" />
+=======
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_maps"
+        />
+
+
+
+
+
+
+
+>>>>>>> IPE-76-Issue-GoogleSignIn
 
 </RelativeLayout>

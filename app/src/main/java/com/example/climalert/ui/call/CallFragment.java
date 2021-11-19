@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.climalert.R;
 import com.example.climalert.databinding.FragmentDashboardBinding;
 
 public class CallFragment extends Fragment {
@@ -23,6 +24,8 @@ public class CallFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 new ViewModelProvider(this).get(CallViewModel.class);
+
+        View view = inflater.inflate(R.layout.fragment_call, container, false);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

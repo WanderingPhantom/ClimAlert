@@ -3,8 +3,11 @@ package com.example.climalert;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,9 +19,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Auth_Activity login = new Auth_Activity();
+        //login.onCreate(savedInstanceState);
+        Fragment fragment = new MapsFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.contenedor, fragment)
+                .commit();
 
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -36,14 +48,69 @@ public class MainActivity extends AppCompatActivity {
         // Región para guardar los datos; así el usuario accede automáticamente, sin tener que
         //pasar por [de nuevo] al inicio de sesión de Google
         SharedPreferences prefe = getSharedPreferences(getString(R.string.prefs_file),Context.MODE_PRIVATE);
-        String email =  prefe.getString("email",null);
-        String provider = prefe.getString("provider", null);
 
+        bottomNavigationView = findViewById(R.id.nav_view);
 
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavMethod);
 
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener bottomNavMethod = new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment f;
+
+            switch (item.getItemId()){
+
+                case R.id.navigation_home:
+
+                    f = new MapsFragment();
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .remove(f)
+                            .replace(R.id.contenedor, f) //R.id.container
+                            .commit();
+
+                    break;
+                case R.id.navigation_call:
+
+                    f = new LlamaditaFragment();
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .remove(f)
+                            .replace(R.id.contenedor, f) //R.id.container
+                            .commit();
+                    break;
+                case R.id.navigation_info:
+
+                    f = new Info_Fragment();
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .remove(f)
+                            .replace(R.id.contenedor, f) //R.id.container
+                            .commit();
+                    break;
+                case R.id.navigation_settings:
+
+                    f = new Settings_Fragment();
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .remove(f)
+                            .replace(R.id.contenedor, f) //R.id.container
+                            .commit();
+                    break;
+
+            }
+
+
+            return true;
+        }
+    };
 
 
 

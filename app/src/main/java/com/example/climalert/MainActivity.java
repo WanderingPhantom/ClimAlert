@@ -18,7 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Fragment fragment;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Auth_Activity login = new Auth_Activity();
         //login.onCreate(savedInstanceState);
-        Fragment fragment = new MapsFragment();
+        fragment = new MapsFragment();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.contenedor, fragment)
@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.navigation_home:
 
-                    f = new MapsFragment();
+                    f = fragment;
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.contenedor, f) //R.id.container
+                            .replace(R.id.contenedor, f)
                             .commit();
 
                     break;
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.contenedor, f) //R.id.container
+                            .replace(R.id.contenedor, f)
                             .commit();
                     break;
                 case R.id.navigation_info:
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.contenedor, f) //R.id.container
+                            .replace(R.id.contenedor, f)
                             .commit();
                     break;
                 case R.id.navigation_settings:
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.contenedor, f) //R.id.container
+                            .replace(R.id.contenedor, f)
                             .commit();
                     break;
 

@@ -27,14 +27,19 @@
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/activity_auth.xml" value="0.22" />
+        <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/activity_call_fragment.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_call.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_dashboard.xml" value="0.1796875" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_info.xml" value="0.13645833333333332" />
+        <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_info_.xml" value="0.1" />
+        <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_informacion.xml" value="0.1" />
+        <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_llamadita.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_notifications.xml" value="0.1796875" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/fragment_settings_.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/layout/maps.xml" value="0.1" />
         <entry key="..\:/Users/origa/AndroidStudioProjects/ClimAlert/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/teoip/AndroidStudioProjects/PES/app/src/main/res/layout/fragment_maps.xml" value="0.19021739130434784" />

@@ -2,7 +2,6 @@ package com.example.climalert;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -33,7 +32,6 @@ public class Auth_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-
         final SignInButton button = findViewById(R.id.sign_in_button);
         button.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -78,13 +76,13 @@ public class Auth_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data); //ESTA LINEA DA PROBLEMAS
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                handleSignInResult(task);                                                         //IDEM PARA ESTA
+                handleSignInResult(task);
             } catch (ApiException e) {
                 e.printStackTrace();
             }
-            setContentView(R.layout.activity_main);
+            //setContentView(R.layout.activity_main);
         }
     }
 
@@ -110,10 +108,10 @@ public class Auth_Activity extends AppCompatActivity {
                         //JSONObject usuario;
                         try {
                             String usuario = response.getString("email");
-                            Log.d("ALGO", "usuario obtenido");
+                            //Log.d("ALGO", "usuario obtenido");
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Log.d("ALGO", "usuario no obtenido");
+                            //Log.d("ALGO", "usuario no obtenido");
                         }
 
                         //Log.d("ALGO", "he acabado el bucle");

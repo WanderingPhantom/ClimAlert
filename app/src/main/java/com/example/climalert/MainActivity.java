@@ -14,8 +14,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.climalert.databinding.ActivityMainBinding;
-import com.example.climalert.ui.call.CallFragment;
-import com.example.climalert.ui.info.InfoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //Auth_Activity login = new Auth_Activity();
+        //login.onCreate(savedInstanceState);
         Fragment fragment = new MapsFragment();
         getSupportFragmentManager()
                 .beginTransaction()
-                .remove(fragment)
                 .replace(R.id.contenedor, fragment)
                 .commit();
 
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            Fragment f = new Fragment();
+            Fragment f;
 
             switch (item.getItemId()){
 
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.contenedor, f)
+                            .replace(R.id.contenedor, f) //R.id.container
                             .commit();
 
                     break;
@@ -85,25 +83,25 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.contenedor, f)
+                            .replace(R.id.contenedor, f) //R.id.container
                             .commit();
                     break;
                 case R.id.navigation_info:
 
-                    f = new Fragment();
+                    f = new Info_Fragment();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.navigation_info, f)
+                            .replace(R.id.contenedor, f) //R.id.container
                             .commit();
                     break;
                 case R.id.navigation_settings:
 
-                    f = new Fragment();
+                    f = new Settings_Fragment();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .remove(f)
-                            .replace(R.id.navigation_settings, f)
+                            .replace(R.id.contenedor, f) //R.id.container
                             .commit();
                     break;
 

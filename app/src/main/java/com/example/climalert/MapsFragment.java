@@ -19,6 +19,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,6 +37,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MapsFragment extends Fragment {
     private GoogleMap mMap;
     AlertDialog alert = null;
@@ -39,19 +50,35 @@ public class MapsFragment extends Fragment {
     LatLng ll2;
     Marker UBI1;
     Marker UBI2;
+    String[][] res;
 
+    /*
+        @Override
+        public void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+        }
+        @Override
+        public void onPause() {
+            super.onPause();
+        }
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+        }
+        @Override
+        public void onResume() {
+            super.onResume();
+        }
+        @Override
+        public void onStart() {
+            super.onStart();
+        }
 
-
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
-
+        @Override
+        public void onStop() {
+            super.onStop();
+        }
+    */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -63,28 +90,29 @@ public class MapsFragment extends Fragment {
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
+
             @Override
             public void onMapReady(@NonNull GoogleMap googleMap) {
-                    Log.d("ACVE", "onMapReady: ha entrado");
-                    mMap = googleMap;
-                    LatLng sydney = new LatLng(-34, 151);
-                    mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                Log.d("ACVE", "onMapReady: ha entrado");
+                mMap = googleMap;
+                LatLng sydney = new LatLng(-34, 151);
+                mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-                    mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
-                        @Override
-                        public void onMapLongClick(@NonNull LatLng latLng) {
-                            if(ll1 == null) {
-                                Alert(1, latLng);
-                            }
-                            else if(ll2 == null) {
-                                Alert(2, latLng);
-                            }
-                            else{
-                                Alert(3, null);
-                            }
+                mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+                    @Override
+                    public void onMapLongClick(@NonNull LatLng latLng) {
+                        if(ll1 == null) {
+                            Alert(1, latLng);
                         }
-                    });
+                        else if(ll2 == null) {
+                            Alert(2, latLng);
+                        }
+                        else{
+                            Alert(3, null);
+                        }
+                    }
+                });
             }
         });
 
@@ -93,6 +121,100 @@ public class MapsFragment extends Fragment {
 
 
     //////////FUNCIONES
+/*
+    public void coger_incidencias(){
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        String url = "https://climalert.herokuapp.com/notificacion";
+
+        // Request a string response from the provided URL.
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        JSONObject Notificacion;
+                        res = new String[response.length()][6];
+                        try {
+                            // Log.d("ALGO", String.valueOf(response.length()));
+                            for (int i = 0; i < response.length(); ++i) {
+                                Notificacion = response.getJSONObject(i);
+                                JSONObject incidenciaFenomeno = Notificacion.getJSONObject("incidenciaFenomeno");
+                                res[i][0] = incidenciaFenomeno.getString("fecha");
+                                JSONObject IndicacionIncidencia = Notificacion.getJSONObject("indicacionIncidencia");
+                                res[i][1] = IndicacionIncidencia.getString("indicacion");
+                                JSONObject incidencia = incidenciaFenomeno.getJSONObject("incidencia");
+                                res[i][2] = incidencia.getString("radio");
+                                JSONObject localizacion = incidencia.getJSONObject("localizacion");
+                                res[i][3] = localizacion.getString("latitud");
+                                res[i][4] = localizacion.getString("longitud");
+                                JSONObject femomenoMeteo = incidenciaFenomeno.getJSONObject("fenomenoMeteo");
+                                res[i][5] = femomenoMeteo.getString("nombre");
+                                Log.d("ALGO", "estoy en el bucle");
+                                Log.d("ALGO", res[i][0]);
+
+                                       /*  Log.d("ALGO2","1");
+                                         Log.d("ALGO2",res[0][0]);
+                                         Log.d("ALGO2",res[0][1]);
+                                         Log.d("ALGO2",res[0][2]);
+                                         Log.d("ALGO2",res[0][3]);
+                                         Log.d("ALGO2",res[0][4]);*//*
+                            }
+                            Log.d("ALGO", "he acabado el bucle");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.d("ALGO", "SOCORRO");
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        // Add the request to the RequestQueue.
+        queue.add(request);
+    }
+    */
+
+    public void dar_localizacion(){
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        String url = "https://climalert.herokuapp.com/usuario/email/localizaciones/new";
+        JSONObject mapa = new JSONObject();
+        try {
+            //mapa.put("password", account.getId());
+            if(ll1 != null) {
+                mapa.put("latitud1", ll1.latitude);
+                mapa.put("longitud1", ll1.longitude);
+            }
+            if(ll2 != null) {
+                mapa.put("latitud2", ll2.latitude);
+                mapa.put("longitud2", ll2.longitude);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // Request a string response from the provided URL.
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, mapa,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //JSONObject usuario;
+                        Log.d("a", String.valueOf(response));
+                        //Log.d("ALGO", "he acabado el bucle");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+
+                }){
+        };
+        queue.add(request);
+    }
+
+
+
     private void Alert(int i, LatLng latLng) {
         if(i == 0) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
